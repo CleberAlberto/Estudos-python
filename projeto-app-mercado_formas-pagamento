@@ -1,0 +1,27 @@
+print('\033[34m{:=^30}'.format('| Lojas Bom custo |'))
+pagar = float(input('Qual o valor das compras? R$'))
+metodo = int(input('''Qual seia o Metodo de pagamento?
+[1] À vista com dinheiro ou cheque
+[2] À vista no cartão
+[3] 2x no cartão
+[4] 3x ou mais vezes no cartão
+[5] Cancelar compra
+Digite de 1 a 5 para forma de pagamento: '''))
+din = pagar-(pagar * 0.1)
+carv = pagar-(pagar*0.05)
+cart2 = pagar / 2
+
+if metodo == 1:
+    print('Pagamento à vista, R${:.2f}'.format(din))
+elif metodo == 2:
+    print('Pagamento à vista no cartão, R${:.2f}'.format(carv))
+elif metodo == 3:
+    print('Pagamento em até 2x no cartão, 2x de R${:.2f}'.format(cart2))
+elif metodo == 4:
+    pcl = int(input('Pagamento no cartão, quantas vezes deseja parcela: '))
+    parc = (pagar * 0.2) / pcl
+    print('Pagamento no cartão em {}, parcelas de R${}'.format(pcl, parc))
+elif metodo == 5:
+    print('Obtou por cancelar a compra :(\n Obrigado e volte sempre!')
+else:
+    print('\033[31mForma de pagamento invalida \n Compra cancelada')
